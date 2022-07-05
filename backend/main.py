@@ -14,8 +14,11 @@ def main():
     @app.route("/message", methods=["POST"])
     def post_message():
         json_request = json.loads(request.data.decode("utf-8"))
-        message = str(json_request["message"])
-        return jsonify({"result": True, "message": message})
+        msg = str(json_request["message"])
+        result = msg != ""
+        if result:
+            message = msg
+        return jsonify({"result": result, "message": message})
 
     app.run(debug=True, port=3000)
 
