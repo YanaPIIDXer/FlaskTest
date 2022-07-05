@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import *
 
 def main():
     app = Flask(__name__)
 
     @app.route("/")
     def index():
-        return "Hello, World"
+        return jsonify({"message": "Hello, World"})
 
     app.run(debug=True, port=3000)
 
