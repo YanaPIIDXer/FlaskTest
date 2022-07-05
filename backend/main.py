@@ -7,7 +7,7 @@ def main():
     def index():
         return "Hello, World"
 
-    app.run(debug=True)
+    app.run(debug=True, port=3000)
 
 if __name__ == "__main__":
     main()
