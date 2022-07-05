@@ -1,7 +1,9 @@
 from flask import *
+from flask_cors import CORS
 
 def main():
     app = Flask(__name__)
+    CORS(app, supports_credentials=True)
 
     message = "Hello, World"
 
@@ -13,7 +15,7 @@ def main():
     # messageを入力
     @app.route("/message", methods=["POST"])
     def post_message():
-        msg = request.json["messagea"]
+        msg = request.json["message"]
         result = msg != ""
         if result:
             message = msg
