@@ -5,6 +5,7 @@ def main():
     app = Flask(__name__)
     CORS(app, supports_credentials=True)
 
+    global message
     message = "Hello, World"
 
     # messageを出力
@@ -18,6 +19,7 @@ def main():
         msg = request.json["message"]
         result = msg != ""
         if result:
+            global message
             message = msg
         return jsonify({"result": result, "message": message})
 
