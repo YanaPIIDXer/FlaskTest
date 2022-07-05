@@ -13,8 +13,7 @@ def main():
     # messageを入力
     @app.route("/message", methods=["POST"])
     def post_message():
-        json_request = json.loads(request.data.decode("utf-8"))
-        msg = str(json_request["message"])
+        msg = request.json["messagea"]
         result = msg != ""
         if result:
             message = msg
